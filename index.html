@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Football Predictor • 5 Grandes Ligas</title>
+  <meta name="description" content="Probabilidades de jogos das 5 grandes ligas europeias baseadas em forma recente e mando de campo." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <div class="brand">
+        <span class="logo">⚽</span>
+        <div>
+          <h1>Football Predictor</h1>
+          <p class="subtitle">5 grandes ligas • modelo de força de ataque e defesa</p>
+        </div>
+      </div>
+      <div class="meta" id="last-update">Carregando...</div>
+    </div>
+  </header>
+
+  <main class="container">
+    <nav class="tabs" id="league-tabs" role="tablist">
+      <!-- preenchido via JS -->
+    </nav>
+
+    <section class="filters">
+      <label>
+        <input type="radio" name="view" value="upcoming" checked /> Próximos jogos
+      </label>
+      <label>
+        <input type="radio" name="view" value="recent" /> Resultados recentes
+      </label>
+    </section>
+
+    <div id="content">
+      <div class="loading">Carregando dados...</div>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <details class="how">
+        <summary>Como funciona o modelo</summary>
+        <p>
+          Cada equipa recebe uma força de ataque e de defesa estimada com todos os jogos da
+          época (e da anterior, com menos peso). Jogos recentes pesam mais, e equipas com poucos
+          jogos são aproximadas da média da liga para evitar valores extremos. A partir dos golos
+          esperados, uma distribuição de Poisson (com correção para placares baixos) dá as
+          probabilidades de vitória, empate e derrota.
+        </p>
+        <p>
+          «Resultado mais provável» é só a opção com maior probabilidade. Não é uma recomendação
+          de aposta: sem as odds das casas de apostas não dá para saber se há valor.
+        </p>
+      </details>
+      <p>
+        Dados: <a href="https://github.com/openfootball/football.json" target="_blank" rel="noopener">openfootball</a> (domínio público).
+      </p>
+      <p class="disclaimer">
+        Isto é um protótipo estatístico. Não é aconselhamento de apostas.
+      </p>
+    </div>
+  </footer>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
